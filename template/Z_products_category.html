@@ -40,7 +40,12 @@
               <h5 class="card-title">{{ product.prname }}</h5>
               <p class="card-text">${{ product.prprice }}</p>
               <p class="card-text">{{ product.prdesc }}</p>
-              <a href="{% url 'Z_cart' %}" class="btn btn-primary">Add to Cart</a>
+
+              <form method="post" action="{% url 'Z_add_cart' product.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+              
             </div>
           </div>
         </div>

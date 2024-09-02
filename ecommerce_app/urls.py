@@ -30,5 +30,8 @@ urlpatterns = [
     path('category/<int:category_id>/', views.Z_products_category, name='Z_products_category'),
 
     
+    path('Z_add_cart/<int:product_id>/', views.Z_add_cart, name='Z_add_cart'),
+
+    path('Z_checkout', views.Z_checkout, name='Z_checkout'),
 
 ]

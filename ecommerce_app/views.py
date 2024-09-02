@@ -216,9 +216,21 @@ def Z_products_category(request, category_id):
 
 
 @login_required(login_url='Z_homepage')
+def Z_add_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart_item, created = Cart.objects.get_or_create(user=request.user, prod=product)
+
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    
+    return redirect('Z_cart')
+
+
 def Z_cart(request):
     cart_items = Cart.objects.filter(user=request.user)
-    
+    total = sum(item.total_price() for item in cart_items)
+
     if request.method == "POST":
         item_id = request.POST.get('item_id')
         quantity = int(request.POST.get('quantity', 1))
@@ -226,5 +238,9 @@ def Z_cart(request):
         cart_item.quantity = quantity
         cart_item.save()
         return redirect('Z_cart')
-    
-    return render(request, 'Z_cart.html', {'cart_items': cart_items})
+
+    return render(request, 'Z_cart.html', {'cart_items': cart_items, 'total': total})
+
+
+def Z_checkout(request):
+    return render(request,'Z_checkout.html')
