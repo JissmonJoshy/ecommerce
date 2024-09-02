@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - E-Kart</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Ensure the page takes up the full viewport height */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Center the form vertically and horizontally */
+    .login-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Ensure the footer stays at the bottom */
+    footer {
+      background-color: #28a745;
+      color: rgb(0, 0, 0);
+      padding: 10px 0;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+      left: 0;
+    }
+
+    .form-group {
+      width: 100%;
+    }
+
+    /* Adjust form width for different screen sizes */
+    @media (min-width: 576px) {
+      .login-container form {
+        width: 80%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .login-container form {
+        width: 60%;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .login-container form {
+        width: 40%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .login-container form {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_homepage' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_product' %}">Products</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Z_login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_signup' %}">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Centered Login Form -->
+  <div class="login-container">
+    <form method="post" action="{% url 'Z_login' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-success text-center text-lg-start mt-auto">
+    <div class="container p-4">
+      <p>&copy; 2024 E-Kart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

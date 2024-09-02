@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - E-Kart</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_homepage' %}">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Z_product' %}">Products</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Z_signup' %}">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Products Section -->
+  <div class="container mt-5">
+    <h2 class="text-center">Products</h2>
+    <div class="row">
+      <!-- Product Card 1 -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://www.shutterstock.com/image-photo/bangkok-thailand-hp-launch-new-260nw-2126914553.jpg"
+            class="card-img-top" alt="Hp 15s" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">Hp 15s</h5>
+            <p class="card-text">₹ 71999</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal1">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://w0.peakpx.com/wallpaper/369/518/HD-wallpaper-dell-spiderman-edition-inspiron-15-7000-dell-spiderman-computer-laptop.jpg"
+            class="card-img-top" alt="Dell GS-10" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">Dell GS-10</h5>
+            <p class="card-text">₹ 82499</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal2">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfUtXGdIHUZ7Bc1LlHVdpget7NfI9kcNscyg&s"
+            class="card-img-top" alt="Asus Tuf" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">Asus Tuf</h5>
+            <p class="card-text">₹ 52999</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal3">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_hero_09142021_inline.jpg.large.jpg"
+            class="card-img-top" alt="iPhone 13" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">iPhone 13</h5>
+            <p class="card-text">₹ 79999</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal4">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://rukminim2.flixcart.com/image/750/900/xif0q/jacket/x/f/r/xl-no-mj001black-better-think-original-imagshnkdha8yytb.jpeg?q=20&crop=false"
+            class="card-img-top" alt="Men's Jacket" height="350px">
+          <div class="card-body">
+            <h5 class="card-title">Men's Jacket</h5>
+            <p class="card-text">₹ 2999</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#productModal5">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more product cards as needed -->
+
+    </div>
+  </div>
+
+  <!-- Product Modals -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel1">Hp 15s</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://www.shutterstock.com/image-photo/bangkok-thailand-hp-launch-new-260nw-2126914553.jpg"
+            class="img-fluid" alt="Hp 15s">
+          <p class="lead mt-3">₹ 71999</p>
+          <ul>
+            <li>Intel i7 Processor</li>
+            <li>16GB RAM, 512GB SSD</li>
+            <li>15.6-inch Full HD Display</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel2">Dell GS-10</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://w0.peakpx.com/wallpaper/369/518/HD-wallpaper-dell-spiderman-edition-inspiron-15-7000-dell-spiderman-computer-laptop.jpg"
+            class="img-fluid" alt="Dell GS-10">
+          <p class="lead mt-3">₹ 82499</p>
+          <ul>
+            <li>Intel i9 Processor</li>
+            <li>32GB RAM, 1TB SSD</li>
+            <li>15.6-inch 4K Display</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel3">Asus Tuf</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfUtXGdIHUZ7Bc1LlHVdpget7NfI9kcNscyg&s"
+            class="img-fluid" alt="Asus Tuf">
+          <p class="lead mt-3">₹ 52999</p>
+          <ul>
+            <li>AMD Ryzen 5</li>
+            <li>8GB RAM, 512GB SSD</li>
+            <li>15.6-inch Full HD Display</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel4">iPhone 13</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_hero_09142021_inline.jpg.large.jpg"
+            class="img-fluid" alt="iPhone 13">
+          <p class="lead mt-3">₹ 79999</p>
+          <ul>
+            <li>A15 Bionic Chip</li>
+            <li>6.1-inch Super Retina XDR</li>
+            <li>128GB Storage</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel5">Men's Jacket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://rukminim2.flixcart.com/image/750/900/xif0q/jacket/x/f/r/xl-no-mj001black-better-think-original-imagshnkdha8yytb.jpeg?q=20&crop=false"
+            class="img-fluid" alt="Men's Jacket">
+          <p class="lead mt-3">₹ 2999</p>
+          <ul>
+            <li>Stylish and Warm</li>
+            <li>Water-resistant</li>
+            <li>Available in Multiple Sizes</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-success text-center text-lg-start mt-5">
+    <div class="container p-4">
+      <p>&copy; 2024 E-Kart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
