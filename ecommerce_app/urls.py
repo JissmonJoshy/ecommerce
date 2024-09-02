@@ -34,4 +34,6 @@ urlpatterns = [
 
     path('Z_checkout', views.Z_checkout, name='Z_checkout'),
 
+    path('delete_cart_item/<int:item_id>/', views.delete_cart_item, name='delete_cart_item'),
+
 ]

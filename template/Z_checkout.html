@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - E-Kart</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <style>
+        html, body {
+            height: 100%;
+        }
 
-<body>
+        .container {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #28a745; /* Same as navbar */
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .payment-methods .form-check {
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
@@ -33,13 +57,13 @@
     </nav>
 
     <!-- Checkout Section -->
-    <div class="container">
-        <h2 class="text-center my-5">Checkout</h2>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Checkout</h2>
         <form method="post" action="" onsubmit="orderPlaced()">
             {% csrf_token %}
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" >
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
@@ -54,35 +78,29 @@
                 <input type="email" class="form-control" id="email" name="email" >
             </div>
             <div class="form-group">
-                <label>Payment Method</label><br>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment_method" id="upi" value="UPI" required>
-                    <label class="form-check-label" for="upi">
-                        UPI
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment_method" id="cod" value="Cash on Delivery" required>
-                    <label class="form-check-label" for="cod">
-                        Cash on Delivery
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment_method" id="netbanking" value="Net Banking" required>
-                    <label class="form-check-label" for="netbanking">
-                        Net Banking
-                    </label>
+                <label>Payment Method</label>
+                <div class="payment-methods">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method" id="upi" value="UPI" required>
+                        <label class="form-check-label" for="upi">UPI</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method" id="cod" value="Cash on Delivery" required>
+                        <label class="form-check-label" for="cod">Cash on Delivery</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method" id="netbanking" value="Net Banking" required>
+                        <label class="form-check-label" for="netbanking">Net Banking</label>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button type="submit" class="btn btn-info btn-block">Submit</button>
         </form>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-success text-center text-lg-start mt-5">
-        <div class="container p-4">
-            <p>&copy; 2024 E-Kart. All rights reserved.</p>
-        </div>
+    <footer class="footer mt-auto">
+        <p>&copy; 2024 E-Kart. All rights reserved.</p>
     </footer>
 
     <script>
@@ -95,5 +113,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
+

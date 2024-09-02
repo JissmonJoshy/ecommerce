@@ -19,6 +19,33 @@
       bottom: 0;
       width: 100%;
     }
+    @media (max-width: 576px) {
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-control {
+        font-size: 14px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 8px 20px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    }
+    @media (min-width: 576px) and (max-width: 768px) {
+      .form-control {
+        font-size: 15px;
+      }
+      .btn {
+        font-size: 15px;
+        padding: 10px 24px;
+      }
+      h2 {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -36,22 +63,21 @@
       </ul>
     </div>
   </nav>
-  <form method="post" action="{% url 'Z_add_category' %}">
-    {% csrf_token %}
+
   <!-- Add Category Form -->
   <div class="container mt-5">
     <h2 class="text-center">Add Category</h2>
-    <form>
+    <form method="post" action="{% url 'Z_add_category' %}">
+      {% csrf_token %}
       <div class="form-group">
         <label for="categoryName">Category Name</label>
-        <input type="text" class="form-control" name="categoryName" placeholder="Enter category name">
+        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name" required>
       </div>
-      <center>
-      <button type="submit" class="btn btn-primary">Save</button>
-      </center>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
     </form>
   </div>
-  </form>
 
   <!-- Footer -->
   <footer class="bg-success text-center text-lg-start mt-5">

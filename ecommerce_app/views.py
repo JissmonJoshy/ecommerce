@@ -226,7 +226,7 @@ def Z_add_cart(request, product_id):
     
     return redirect('Z_cart')
 
-
+@login_required(login_url='Z_homepage')
 def Z_cart(request):
     cart_items = Cart.objects.filter(user=request.user)
     total = sum(item.total_price() for item in cart_items)
@@ -241,6 +241,14 @@ def Z_cart(request):
 
     return render(request, 'Z_cart.html', {'cart_items': cart_items, 'total': total})
 
-
+@login_required(login_url='Z_homepage')
 def Z_checkout(request):
     return render(request,'Z_checkout.html')
+
+
+@login_required(login_url='Z_homepage')
+def delete_cart_item(request, item_id):
+    item = Cart.objects.get(id=item_id)
+    item.delete()
+    return redirect('Z_cart')
+
