@@ -21,6 +21,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    /* Style for the message container */
+    .message-container {
+      width: 80%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0 auto;
+      width: 100%;
     }
 
     /* Ensure the footer stays at the bottom */
@@ -87,6 +101,17 @@
 <br>
   <!-- Centered Sign-Up Form -->
   <div class="signup-container">
+    <!-- Messages -->
+    {% if messages %}
+    <div class="message-container">
+      <div class="alert alert-info">
+        {% for msg in messages %}
+          {{ msg }}<br>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
@@ -141,5 +166,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
 

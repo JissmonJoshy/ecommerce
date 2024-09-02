@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category 2 Products - E-Kart</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Z_homepage' %}">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Z_cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Z_logut' %}">Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category 2 Products -->
+    <div class="container mt-5">
+        <h2 class="text-center">Category 2 Products</h2>
+        <div class="row">
+            <!-- Product Card 1 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-61584/iphone-12-pro-max-graphite-hero.jpg"
+                        class="card-img-top" alt="Product 1" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">iPhone 15</h5>
+                        <p class="card-text">$1,11,999</p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iphone15Modal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://oxygendigitalshop.com/pub/media/catalog/product/6/1/61y7zbtqcwl._sl1200_.jpg"
+                        class="card-img-top" alt="Product 2" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">Vivo Y56</h5>
+                        <p class="card-text">₹ 32499</p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vivoY56Modal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://images.samsung.com/is/image/samsung/levant-feature----185452717?$FB_TYPE_I_JPG$"
+                        class="card-img-top" alt="Product 3" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung A20s</h5>
+                        <p class="card-text">₹ 29999</p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#samsungA20sModal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product cards as needed -->
+
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- iPhone 15 Modal -->
+    <div class="modal fade" id="iphone15Modal" tabindex="-1" role="dialog" aria-labelledby="iphone15ModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="iphone15ModalLabel">iPhone 15</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-61584/iphone-12-pro-max-graphite-hero.jpg"
+                        class="img-fluid" alt="iPhone 15">
+                    <p class="mt-3">Price:₹ 1,11,999</p>
+                    <p>Details:</p>
+                    <ul>
+                        <li>Stunning 6.7-inch Super Retina XDR display.</li>
+                        <li>Powerful A16 Bionic chip for enhanced performance.</li>
+                        <li>Advanced dual-camera system with 12MP Ultra Wide and Telephoto lenses.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vivo Y56 Modal -->
+    <div class="modal fade" id="vivoY56Modal" tabindex="-1" role="dialog" aria-labelledby="vivoY56ModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="vivoY56ModalLabel">Vivo Y56</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://oxygendigitalshop.com/pub/media/catalog/product/6/1/61y7zbtqcwl._sl1200_.jpg"
+                        class="img-fluid" alt="Vivo Y56">
+                    <p class="mt-3">Price:₹ 32499</p>
+                    <p>Details:</p>
+                    <ul>
+                        <li>Large 6.5-inch HD+ display for immersive viewing.</li>
+                        <li>Quad-core processor for smooth performance.</li>
+                        <li>Dual rear camera setup with 13MP main camera.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Samsung A20s Modal -->
+    <div class="modal fade" id="samsungA20sModal" tabindex="-1" role="dialog" aria-labelledby="samsungA20sModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="samsungA20sModalLabel">Samsung A20s</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.samsung.com/is/image/samsung/levant-feature----185452717?$FB_TYPE_I_JPG$"
+                        class="img-fluid" alt="Samsung A20s">
+                    <p class="mt-3">Price:₹ 29999</p>
+                    <p>Details:</p>
+                    <ul>
+                        <li>6.5-inch Infinity-V display for an expansive viewing experience.</li>
+                        <li>Triple camera setup with 13MP main camera.</li>
+                        <li>Long-lasting 4000mAh battery for extended usage.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-success text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 E-Kart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

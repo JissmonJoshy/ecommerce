@@ -29,6 +29,17 @@ def Z_productdetail(request):
 
 
 
+def Z_products_category1(request):
+    return render(request,'Z_products_category1.html')
+                                                                        #just images 
+def Z_products_category2(request):
+    return render(request,'Z_products_category2.html')
+
+def Z_products_category3(request):
+    return render(request,'Z_products_category3.html')
+
+
+
 def Z_signup(request):
     return render(request,'Z_signup.html')
 
@@ -196,7 +207,10 @@ def Z_logout(request):
 
 
 
-
+def Z_products_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    products = Product.objects.filter(category=category)
+    return render(request, 'Z_products_category.html', {'category': category, 'products': products})
 
 
 

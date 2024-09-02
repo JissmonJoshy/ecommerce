@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category 3 Products - E-Kart</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Z_homepage' %}">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Z_cart' %}">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Z_logout' %}">Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category 3 Products -->
+    <div class="container mt-5">
+        <h2 class="text-center">Laptops</h2>
+        <div class="row">
+            <!-- Product Card 1 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://www.shutterstock.com/image-photo/bangkok-thailand-hp-launch-new-260nw-2126914553.jpg"
+                        class="card-img-top" alt="Hp 15s" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">Hp 15s</h5>
+                        <p class="card-text">₹ 71,999</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hp15sModal">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://w0.peakpx.com/wallpaper/369/518/HD-wallpaper-dell-spiderman-edition-inspiron-15-7000-dell-spiderman-computer-laptop.jpg"
+                        class="card-img-top" alt="Dell GS-10" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">Dell GS-10</h5>
+                        <p class="card-text">₹ 82,499</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#dellGS10Modal">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfUtXGdIHUZ7Bc1LlHVdpget7NfI9kcNscyg&s"
+                        class="card-img-top" alt="Asus Tuf" height="350px">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus Tuf</h5>
+                        <p class="card-text">₹ 52,999</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#asusTufModal">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product cards as needed -->
+
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Hp 15s Modal -->
+    <div class="modal fade" id="hp15sModal" tabindex="-1" aria-labelledby="hp15sModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hp15sModalLabel">Hp 15s</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://www.shutterstock.com/image-photo/bangkok-thailand-hp-launch-new-260nw-2126914553.jpg"
+                        class="img-fluid mb-3" alt="Hp 15s">
+                    <p>Fast Intel Core i7 processor.<br>Bright, high-definition display.<br>Lightweight and portable
+                        design.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dell GS-10 Modal -->
+    <div class="modal fade" id="dellGS10Modal" tabindex="-1" aria-labelledby="dellGS10ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dellGS10ModalLabel">Dell GS-10</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://w0.peakpx.com/wallpaper/369/518/HD-wallpaper-dell-spiderman-edition-inspiron-15-7000-dell-spiderman-computer-laptop.jpg"
+                        class="img-fluid mb-3" alt="Dell GS-10">
+                    <p>Powerful AMD Ryzen processor.<br>High-resolution 4K display.<br>Robust build quality and design.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Asus Tuf Modal -->
+    <div class="modal fade" id="asusTufModal" tabindex="-1" aria-labelledby="asusTufModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="asusTufModalLabel">Asus Tuf</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfUtXGdIHUZ7Bc1LlHVdpget7NfI9kcNscyg&s"
+                        class="img-fluid mb-3" alt="Asus Tuf">
+                    <p>Durable military-grade construction.<br>Strong graphics performance.<br>Affordable for gaming
+                        enthusiasts.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-success text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 E-Kart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
