@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages,auth
 from .models import Category,Product,userdetail,Cart
+from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def Z_homepage(request):
@@ -207,43 +208,21 @@ def Z_logout(request):
 
 
 
-def Z_products_category(request, category_id):
-    category = get_object_or_404(Category, id=category_id)
-    products = Product.objects.filter(category=category)
-    return render(request, 'Z_products_category.html', {'category': category, 'products': products})
-
-
-
 
 @login_required(login_url='Z_homepage')
 def Z_add_cart(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+    product = Product.objects.get(id=product_id)
     cart_item, created = Cart.objects.get_or_create(user=request.user, prod=product)
 
     if not created:
+        
         cart_item.quantity += 1
         cart_item.save()
     
     return redirect('Z_cart')
 
-@login_required(login_url='Z_homepage')
-def Z_cart(request):
-    cart_items = Cart.objects.filter(user=request.user)
-    total = sum(item.total_price() for item in cart_items)
 
-    if request.method == "POST":
-        item_id = request.POST.get('item_id')
-        quantity = int(request.POST.get('quantity', 1))
-        cart_item = Cart.objects.get(id=item_id, user=request.user)
-        cart_item.quantity = quantity
-        cart_item.save()
-        return redirect('Z_cart')
 
-    return render(request, 'Z_cart.html', {'cart_items': cart_items, 'total': total})
-
-@login_required(login_url='Z_homepage')
-def Z_checkout(request):
-    return render(request,'Z_checkout.html')
 
 
 @login_required(login_url='Z_homepage')
@@ -252,3 +231,34 @@ def delete_cart_item(request, item_id):
     item.delete()
     return redirect('Z_cart')
 
+def increase(request,k):
+    cart_item=Cart.objects.get(prod_id=k,user=request.user)
+    cart_item.quantity +=1
+    cart_item.save()
+    return redirect('Z_cart')
+
+def decrease(request,k):
+    cart_item=Cart.objects.get(prod_id=k,user=request.user)
+    cart_item.quantity -=1
+    cart_item.save()
+    return redirect('Z_cart')
+
+
+
+def Z_products_category(request, category_id):
+    category = Category.objects.get( id=category_id)
+    products = Product.objects.filter(category=category)
+    cart_count = Cart.objects.filter(user=request.user).count()
+    return render(request, 'Z_products_category.html', {'category': category, 'products': products, 'cart_count': cart_count})
+
+@login_required(login_url='Z_homepage')
+def Z_cart(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    total = sum(item.total_price() for item in cart_items)
+    cart_count = cart_items.count()
+    return render(request, 'Z_cart.html', {'cart_items': cart_items, 'total': total, 'cart_count': cart_count})
+
+@login_required(login_url='Z_homepage')
+def Z_checkout(request):
+    cart_count = Cart.objects.filter(user=request.user).count()
+    return render(request, 'Z_checkout.html', {'cart_count': cart_count})

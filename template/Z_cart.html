@@ -42,26 +42,28 @@
 <body class="d-flex flex-column min-vh-100">
   
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'Z_user_homepage' %}">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'Z_cart' %}">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'Z_logout' %}">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="{% url 'Z_homepage' %}">E-Kart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Z_user_homepage' %}">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Z_cart' %}">Cart <span class="badge badge-pill badge-light">{{ cart_count }}</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Z_logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
   <!-- Cart Section -->
   <div class="container my-5 flex-grow-1">
@@ -89,7 +91,13 @@
                 <td>{{ item.prod.prdesc }}</td>
                 <td>₹{{ item.prod.prprice }}</td>
                 <td>
-                  <input type="number" class="form-control quantity-input" value="{{ item.quantity }}" min="1">
+                  <a class="btn btn-sm btn-danger ml-2" href="{% url 'decrease' item.prod.id %}">-</a>
+                  {{ item.quantity }}
+                  <a class="btn btn-sm btn-danger ml-2" href="{% url 'increase' item.prod.id %}">+</a>
+
+                 
+                    
+                  
                 </td>
                 <td>₹{{ item.total_price }}</td>
                 <td>
