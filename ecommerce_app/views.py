@@ -251,12 +251,16 @@ def Z_products_category(request, category_id):
     cart_count = Cart.objects.filter(user=request.user).count()
     return render(request, 'Z_products_category.html', {'category': category, 'products': products, 'cart_count': cart_count})
 
+
+
 @login_required(login_url='Z_homepage')
 def Z_cart(request):
     cart_items = Cart.objects.filter(user=request.user)
     total = sum(item.total_price() for item in cart_items)
     cart_count = cart_items.count()
     return render(request, 'Z_cart.html', {'cart_items': cart_items, 'total': total, 'cart_count': cart_count})
+
+
 
 @login_required(login_url='Z_homepage')
 def Z_checkout(request):
