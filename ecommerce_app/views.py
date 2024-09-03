@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages,auth
 from .models import Category,Product,userdetail,Cart
-from django.db.models import Sum
+
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def Z_homepage(request):
